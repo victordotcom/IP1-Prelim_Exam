@@ -1,52 +1,42 @@
-
-
-{
+document.addEventListener('DOMContentLoaded', function() {
     const choices = ['rock', 'paper', 'scissors'];
     const choiceImages = {
         rock: "../images/rockrock.png", 
         paper: "../images/paperpaper.png", 
         scissors: "../images/scissorscissor.png" 
     };
+
     let player1Score = 0;
     let player2Score = 0;
 
-    const player1ImageElem = document.getElementById('player1_img');
+    const player1Image = document.getElementById('player1_img');
     const player1ScoreElem = document.getElementById('player1_score');
-    const player2ImageElem = document.getElementById('player2_img');
+    const player2Image = document.getElementById('player2_img');
     const player2ScoreElem = document.getElementById('player2_score');
-    const gameResultElem = document.getElementById('gameResult');
+    const gameResult = document.getElementById('gameResult');
     const playButton = document.getElementById('playButton');
 
-    playButton.addEventListener('click', function()  {
-        if (player1Score < 3 && player2Score < 3) {
-            const player1Choice = choices[Math.floor(Math.random() * 3)];
-            const player2Choice = choices[Math.floor(Math.random() * 3)];
-            
-            player1ImageElem.src = choiceImages[player1Choice];
-            player2ImageElem.src = choiceImages[player2Choice];
+    function initializeGame() {
+        player1Score = 0;
+        player2Score = 0;
+        updateScores();
+        gameResult.textContent = '';
+        playButton.disabled = false;
+    }
 
-            const result = determineWinner(player1Choice, player2Choice);
-            if (result === 'Player 1') {
-                player1Score++;
-                player1ScoreElem.textContent = `Score: ${player1Score}`;
-                gameResultElem.textContent = `Player 1 wins this round!`;
-            } else if (result === 'Player 2') {
-                player2Score++;
-                player2ScoreElem.textContent = `Score: ${player2Score}`;
-                gameResultElem.textContent = `Player 2 wins this round!`;
-            } else {
-                gameResultElem.textContent = 'It\'s a draw!';
-            }
+    function updateScores() {
+        player1ScoreElem.textContent = `Score: ${player1Score}`;
+        player2ScoreElem.textContent = `Score: ${player2Score}`;
+    }
 
-            if (player1Score === 3) {
-                gameResultElem.textContent = 'Player 1 wins the game!';
-                playButton.disabled = true;
-            } else if (player2Score === 3) {
-                gameResultElem.textContent = 'Player 2 wins the game!';
-                playButton.disabled = true;
-            }
-        }
-    });
+    function getRandomChoice() {
+        return choices[Math.floor(Math.random() * 3)];
+    }
+
+    function setPlayerImages(player1Choice, player2Choice) {
+        player1Image.src = choiceImages[player1Choice];
+        player2Image.src = choiceImages[player2Choice];
+    }
 
     function determineWinner(player1Choice, player2Choice) {
         if (player1Choice === player2Choice) {
@@ -61,4 +51,52 @@
             return 'Player 2';
         }
     }
-};
+
+    function playRound() {
+        if (player1Score < 3 && player2Score < 3) {
+            const player1Choice = getRandomChoice();
+            const player2Choice = getRandomChoice();
+            
+            setPlayerImages(player1Choice, player2Choice);
+
+            const result = determineWinner(player1Choice, player2Choice);
+            if (result === 'Player 1') {
+                player1Score++;
+                gameResult.textContent = 'Player 1 wins this round!';
+            } else if (result === 'Player 2') {
+                player2Score++;
+                gameResult.textContent = 'Player 2 wins this round!';
+            } else {
+                gameResult.textContent = 'It\'s a tie!';
+            }
+
+            updateScores();
+
+            if (player1Score === 3) {
+                gameResult.textContent = 'Player 1 wins the game!';
+                
+            } else if (player2Score === 3) {
+                gameResult.textContent = 'Player 2 wins the game!';
+                
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    playButton.addEventListener('click', playRound);
+
+    
+    initializeGame();
+});
