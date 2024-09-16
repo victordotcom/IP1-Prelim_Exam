@@ -4,10 +4,16 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('../images/wp7617144.jpg');
+    background-image: url('../images/8368ebc3358dfae9e1d1418bc2f9333e.jpg');
     margin: 0;
     background-color: #f0f8ff; 
-    font-family: Arial, sans-serif;  
+    font-family: Arial, sans-serif;
+    
+   
+    
+
+    
+   
 }
 
 .images {
@@ -30,6 +36,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #89CFF0;
+    
 }
 
 h1 {
@@ -85,11 +92,25 @@ button:hover {
 }
 }
 
-@media (max-width: 1025px){
+@media (max-width: 768px){
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+        background-image: url('../images/8368ebc3358dfae9e1d1418bc2f9333e.jpg');
+        margin: 0;
+        background-color: #f0f8ff; 
+        font-family: Arial, sans-serif;
+    
+        
+       
+    }
+    
     .images {
         display: flex;
         justify-content: center;
-        margin: 1000px 0;
+        margin: 20px 0;
     }
     
     .images img {
@@ -99,20 +120,17 @@ button:hover {
     }
     
     .container {
-        display: grid;
-        grid-template-columns: fr;
-        justify-items: center;
-        gap: 1rem;
+        
         text-align: center;
         /* background-color: black; */
-        padding: 5px;
+        padding: 10px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         background-color: #89CFF0;
     }
     
     h1 {
-        margin-bottom: 10px;
+        margin-bottom: 80px;
         margin-top: 5px;
         color: #000;
     }
@@ -163,55 +181,75 @@ button:hover {
         font-weight: bold;
     }
 }
+@media (max-width: 425px){
 
-@media (max-width: 425px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 700px;
+        width: 500px;
+        background-image: url('../images/8368ebc3358dfae9e1d1418bc2f9333e.jpg');
+        margin: 10px;
+        background-color: #f0f8ff; 
+        font-family: Arial, sans-serif;
+    
+        
+       
+    }
     .images {
         display: flex;
         justify-content: center;
-        margin: 20px 0; /* Adjust margin to fit the screen better */
+        margin: 1000px 0;
     }
     
     .images img {
         width: 150px;
         height: 150px;
-        margin: 0 10px; /* Reduce margin to fit on smaller screens */
+        margin: 0 20px;
     }
     
     .container {
-      
+        display: grid;
+        grid-template-columns: fr;
+        justify-items: center;
+        gap: 1rem;
+        text-align: center;
+        /* background-color: black; */
+        padding: 10px;
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         background-color: #89CFF0;
-        text-align: center; /* Center align text */
     }
     
-    h2 {
-        margin: 20px 0; /* Adjust margins */
-        color: #000; /* Ensure text is visible */
-        margin-left: 150px;
+    h1 {
+        margin-bottom: 80px;
+        margin-top: 5px;
+        color: #000;
     }
     
     .game {
-        display: grid;
-        grid-template-columns: 1fr; /* One column layout */
-        gap: 1px; /* Space between elements */
-        justify-items: center;
-        margin-left: 150px;
+        display: flex; 
+        justify-content: space-around;
+        align-items: center;
+        height: 400px;
+        width: 600px;
     }
-    
     .player {
-        margin: 0;
+        margin: 0 20px;
         text-align: center;
     }
     
     .choice-image {
-        width: 150px; /* Adjust to match the width of images */
-        height: auto; /* Keep aspect ratio */
-        margin: 10px 0; /* Margin between images */
+        width: 170px;
+        height: 150px;
+        margin-bottom: 15px;
+       
+        height: auto;
     }
     
     .play-area {
-        margin: 20px 0; /* Margin around play area */
+        margin:  0px;
     }
     
     button {
@@ -223,6 +261,7 @@ button:hover {
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s;
+        
     }
     
     button:hover {
@@ -230,12 +269,8 @@ button:hover {
     }
     
     #gameResult {
-        
+        margin-bottom: 40px;
         font-size: 25px;
         font-weight: bold;
-        margin-bottom: 150px;
-        margin-left: 150px;
-        margin-top: 20px;
     }
 }
-

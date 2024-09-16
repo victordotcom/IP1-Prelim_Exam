@@ -1,4 +1,5 @@
-// document.addEventListener('DOMContentLoaded', function ()  )
+
+
 {
     const choices = ['rock', 'paper', 'scissors'];
     const choiceImages = {
